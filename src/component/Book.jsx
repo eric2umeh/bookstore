@@ -6,6 +6,7 @@ const Book = ({ title, author }) => (
     <ul>
       <li>{title}</li>
       <li>{author}</li>
+      <button type="submit">Remove</button>
     </ul>
   </div>
 );

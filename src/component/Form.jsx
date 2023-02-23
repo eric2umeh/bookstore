@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = () => {
+const Form = () => (
   <div>
     <form action="">
       <input type="text" id="title" name="title" placeholder="Book Title" />
@@ -12,7 +12,7 @@ const Form = () => {
       </select>
       <button type="submit">Add Book</button>
     </form>
-  </div>;
-};
+  </div>
+);
 
 export default Form;
