@@ -19,7 +19,6 @@ const Book = ({ id, author, title }) => {
           <button type="submit" onClick={handleRemove}>
             Remove
           </button>
-          <button type="submit">Edit</button>
         </div>
       </div>
     </div>

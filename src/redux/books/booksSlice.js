@@ -15,35 +15,7 @@ const removeBook = (id) => ({
 });
 
 // Reducer
-const booksReducer = (
-  state = [
-    {
-      id: v4(),
-      title: 'Oliver Twist',
-      author: 'Charles Dikens',
-      genre: 'sc-fi',
-    },
-    {
-      id: v4(),
-      title: 'The World as Will and Representation',
-      author: 'Arthur Schopenhauer',
-      genre: 'philosophy',
-    },
-    {
-      id: v4(),
-      title: 'Thus Spoke Zarathustra',
-      author: 'Friedrich Nietzsche',
-      genre: 'philosophy',
-    },
-    {
-      id: v4(),
-      title: 'Les Misérables',
-      author: 'Victor Hugo',
-      genre: 'historical fiction',
-    },
-  ],
-  action = {},
-) => {
+const booksReducer = (state = [], action = {}) => {
   switch (action.type) {
     case ADD_BOOK:
       return [...state, action.book];
