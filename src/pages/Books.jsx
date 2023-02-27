@@ -1,10 +1,10 @@
 import React from 'react';
-import Book from '../component/Book';
+import BookList from '../component/BookList';
 import Form from '../component/Form';
 
 const Books = () => (
   <>
-    <Book title="How to Hear From God" author="LaFamCall Lambert Eze" />
+    <BookList />
     <Form />
   </>
 );
