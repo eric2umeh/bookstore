@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 const ADD_BOOK = 'books/ADD_BOOK';
 const REMOVE_BOOK = 'book/REMOVE_BOOK';
 
