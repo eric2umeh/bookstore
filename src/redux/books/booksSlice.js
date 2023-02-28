@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 const ADD_BOOK = 'books/ADD_BOOK';
 const REMOVE_BOOK = 'book/REMOVE_BOOK';
 
@@ -15,29 +13,7 @@ const removeBook = (id) => ({
 });
 
 // Reducer
-const booksReducer = (
-  state = [
-    {
-      id: v4(),
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      id: v4(),
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      id: v4(),
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
-  action = {},
-) => {
+const booksReducer = (state = [], action = {}) => {
   switch (action.type) {
     case ADD_BOOK:
       return [...state, action.book];

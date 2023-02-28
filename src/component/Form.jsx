@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
+import Button from './Button';
 
 const Form = () => {
   const [author, setAuthor] = useState('');
@@ -40,7 +41,7 @@ const Form = () => {
           onChange={(event) => setAuthor(event.target.value)}
           value={author}
         />
-        <button type="submit">Add Book</button>
+        <Button type="submit">Add Book</Button>
       </form>
     </div>
   );
