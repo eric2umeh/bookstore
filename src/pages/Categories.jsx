@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '../component/Button';
 import { checkStatus } from '../redux/categories/categoriesSlice';
 
 const Categories = () => {
@@ -14,9 +15,9 @@ const Categories = () => {
 
   return (
     <div>
-      <button type="submit" onClick={handleCheckStatus}>
+      <Button type="submit" handleClick={handleCheckStatus}>
         {isChecking ? 'Checking..' : 'Check Status'}
-      </button>
+      </Button>
       <div>{categories}</div>
       <div>{message}</div>
     </div>
