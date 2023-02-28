@@ -31,7 +31,7 @@ const categoriesReducer = (state = initialState, action) => {
         ...state,
         country: action.payload,
         isChecking: false,
-        categories: [...state.filter((cartegory) => cartegory.name !== action.name)],
+        categories: [...state.filter((cartegory) => cartegory.id !== action.id)],
       };
 
     default:
