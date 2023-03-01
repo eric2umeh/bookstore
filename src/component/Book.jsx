@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { removeBook } from '../redux/books/booksSlice';
+import Button from './Button';
 
 const Book = ({ id, author, title }) => {
   const dispatch = useDispatch();
@@ -16,9 +17,9 @@ const Book = ({ id, author, title }) => {
         <h3>{title}</h3>
         <p>{author}</p>
         <div>
-          <button type="submit" onClick={handleRemove}>
+          <Button type="submit" handleClick={handleRemove}>
             Remove
-          </button>
+          </Button>
         </div>
       </div>
     </div>
