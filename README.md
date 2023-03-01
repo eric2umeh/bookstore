@@ -167,7 +167,7 @@ If you like this project kindly star it, I would appreciate that.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank (Render)[https://render.com/] and the Microverse team.
+I would like to thank (The Bookstore API)[https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi] for the endpoint and the Microverse team.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
