@@ -25,7 +25,7 @@ const Book = (props) => {
         <h3>{title}</h3>
         <p>{author}</p>
         <div>
-          <Button type="submit" data-id={id} handleClick={handleRemove}>
+          <Button type="submit" dataId={id} handleClick={handleRemove}>
             Remove
           </Button>
         </div>
