@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+body {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  color: $color-grey-1;
+  font-weight: 400;
+  background-color: $color-grey-light;
+}
+
 // Progress Bar
 .box {
   width: 100%;
