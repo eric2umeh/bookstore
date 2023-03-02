@@ -4,6 +4,7 @@ import Book from '../component/Book';
 import Button from '../component/Button';
 import { getBooks } from '../redux/books/booksSlice';
 import { categoriesActions } from '../redux/categories/categoriesSlice';
+import './Categories.scss';
 
 const Categories = () => {
   let { books } = useSelector((state) => state.books);
@@ -35,29 +36,36 @@ const Categories = () => {
   useEffect(() => {
     dispatch(getBooks());
   }, [dispatch]);
+
   return (
     <>
-      <main>
-        <Button handleClick={handleCategory}>All categoryy</Button>
-        <div>
-          {categories.map((cate) => (
-            <Button key={cate} handleClick={handleCategory}>
-              {cate}
-            </Button>
-          ))}
+      <div>
+        <div className="categories-wrapper row">
+          <div className="header">
+            <div className="header-buttons">
+              <Button className="active" handleClick={handleCategory}>
+                All categoryy
+              </Button>
+              {categories.map((cate) => (
+                <Button key={cate} handleClick={handleCategory}>
+                  {cate}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="books">
+            {books.map((bok) => (
+              <Book
+                key={bok.item_id}
+                title={bok.title}
+                author={bok.author}
+                catgeory={bok.category}
+                id={bok.item_id}
+              />
+            ))}
+          </div>
         </div>
-        <div>
-          {books.map((bok) => (
-            <Book
-              key={bok.item_id}
-              title={bok.title}
-              author={bok.author}
-              catgeory={bok.category}
-              id={bok.item_id}
-            />
-          ))}
-        </div>
-      </main>
+      </div>
     </>
   );
 };
