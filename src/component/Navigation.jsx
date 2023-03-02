@@ -10,7 +10,7 @@ function Navigation() {
             className={(linkData) => (linkData.isActive ? 'active-link' : '')}
             to="/"
           >
-            Books
+            BOOKS
           </NavLink>
         </li>
         <li className="nav-link">
@@ -18,7 +18,7 @@ function Navigation() {
             className={(linkData) => (linkData.isActive ? 'active-link' : '')}
             to="/categories"
           >
-            Categories
+            CATEGORIES
           </NavLink>
         </li>
       </ul>
