@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook, postBook } from '../redux/books/booksSlice';
+import { booksActions, postBook } from '../redux/books/booksSlice';
 
 const Form = () => {
   const [author, setAuthor] = useState('');
@@ -14,16 +14,16 @@ const Form = () => {
     event.preventDefault();
     if (!title.trim() || !author.trim()) return;
 
-    const newBook = {
+    const bookData = {
       item_id: uuidv4(),
       title,
       author,
-      category: 'Fiction',
+      category,
     };
 
     // Add book to state
-    dispatch(addBook(newBook));
-    dispatch(postBook(newBook));
+    dispatch(booksActions.addBook(bookData));
+    dispatch(postBook(bookData));
 
     // Empty form inputs
     setAuthor('');
@@ -51,7 +51,13 @@ const Form = () => {
           onChange={(event) => setAuthor(event.target.value)}
           value={author}
         />
-        <select name="category" id="category" onChange={(event) => setCategory(event.target.value)} aria-label="Book Category" required>
+        <select
+          name="category"
+          id="category"
+          onChange={(event) => setCategory(event.target.value)}
+          aria-label="Book Category"
+          required
+        >
           <option value="">Choose Category...</option>
           <option value="Technology">Technology</option>
           <option value="Economics">Economics</option>
