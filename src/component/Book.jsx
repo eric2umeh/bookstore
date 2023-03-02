@@ -1,14 +1,22 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeBook } from '../redux/books/booksSlice';
+import { booksActions, deleteBook } from '../redux/books/booksSlice';
 import Button from './Button';
 
-const Book = ({ id, author, title }) => {
+const Book = (props) => {
   const dispatch = useDispatch();
+  const { title, author, id } = props;
 
-  const handleRemove = () => {
-    dispatch(removeBook(id));
+  const handleRemove = (e) => {
+    // dispatch for remove book action
+
+    // dataset removes single dashes (-) for when to capitalize the property's "camelCased" name.
+    const { id } = e.target.dataset;
+    dispatch(booksActions.removeBook(id));
+
+    // Delete in the backend
+    dispatch(deleteBook(id));
   };
 
   return (
@@ -17,7 +25,7 @@ const Book = ({ id, author, title }) => {
         <h3>{title}</h3>
         <p>{author}</p>
         <div>
-          <Button type="submit" handleClick={handleRemove}>
+          <Button type="submit" data-id={id} handleClick={handleRemove}>
             Remove
           </Button>
         </div>
