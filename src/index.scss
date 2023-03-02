@@ -205,13 +205,12 @@ p {
     }
 
     .chapter-text {
-      font-family: RobotoSlab;
+      font-family: RobotoSlab, sans-serif;
       font-size: 1.5rem;
       font-weight: 200;
       letter-spacing: -0.4px;
       color: $color-grey-3;
       margin-top: 0.8rem;
-
     }
 
     .progress-btn {
@@ -222,7 +221,7 @@ p {
       cursor: pointer;
       border: none;
       margin-top: 1rem;
-      font-family: RobotoSlab;
+      font-family: RobotoSlab, sans-serif;
       font-weight: 300;
       text-transform: uppercase;
     }
@@ -235,7 +234,7 @@ p {
   padding: 2rem 0;
 
   .title-form {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: -0.18px;
