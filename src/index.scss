@@ -179,7 +179,7 @@ p {
 
   .completion-status {
     display: flex;
-    gap: 2rem;
+    align-items: center;
 
     .completion-data {
       display: flex;
@@ -199,24 +199,32 @@ p {
 
   .chapter {
     .title {
-      color: $color-grey-2;
+      color: $color-border;
       font-size: 1.3rem;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
     }
 
     .chapter-text {
-      font-size: 1.6rem;
+      font-family: RobotoSlab;
+      font-size: 1.5rem;
+      font-weight: 200;
+      letter-spacing: -0.4px;
+      color: $color-grey-3;
+      margin-top: 0.8rem;
+
     }
 
     .progress-btn {
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 3.2rem;
       border-radius: 3px;
       background-color: $color-blue;
-      color: #dbdbdb;
+      color: #fff;
       cursor: pointer;
       border: none;
       margin-top: 1rem;
+      font-family: RobotoSlab;
+      font-weight: 300;
+      text-transform: uppercase;
     }
   }
 }
@@ -224,7 +232,15 @@ p {
 // Form
 .form-wrapper {
   border-top: solid 2px $color-border;
-  padding: 4rem 0;
+  padding: 2rem 0;
+
+  .title-form {
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -0.18px;
+    color: $color-grey-2;
+  }
 
   .form {
     display: flex;
@@ -237,6 +253,7 @@ p {
       border: 1px solid $color-border;
       border-radius: 3px;
       background-color: #fff;
+      color: $color-grey-2;
     }
 
     .title-input {
@@ -267,9 +284,9 @@ p {
 .books-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 @media (max-width: 600px) {

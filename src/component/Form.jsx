@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { booksActions, postBook } from '../redux/books/booksSlice';
-import Button from './Button';
+// import Button from './Button';
 
 const Form = () => {
   const [author, setAuthor] = useState('');
@@ -34,6 +34,7 @@ const Form = () => {
 
   return (
     <div className="form-wrapper row">
+      <p className="title-form">ADD NEW BOOK</p>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
@@ -72,7 +73,9 @@ const Form = () => {
           <option value="Science">Science</option>
           <option value="Politics">Politics</option>
         </select>
-        <Button type="submit" className="submit-button">Add Book</Button>
+        <button type="submit" className="submit-button">
+          Add Book
+        </button>
       </form>
     </div>
   );
