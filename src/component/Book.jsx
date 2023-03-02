@@ -13,7 +13,6 @@ const Book = (props) => {
 
   const handleRemove = (e) => {
     // dispatch for remove book action
-
     // dataset removes single dashes (-) for when to capitalize the property's "camelCased" name.
     const { id } = e.target.dataset;
     dispatch(booksActions.removeBook(id));
@@ -36,7 +35,7 @@ const Book = (props) => {
             Remove
           </Button>
           <Button type="button" data-id={id}>
-            Edit
+            <span className="line">Edit</span>
           </Button>
         </div>
       </div>
