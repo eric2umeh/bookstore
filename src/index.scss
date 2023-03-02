@@ -17,6 +17,78 @@ body {
   background-color: $color-grey-light;
 }
 
+.row {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+// Header
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid $color-border;
+
+  .logo {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-blue;
+    }
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    gap: 4rem;
+  }
+
+  .user {
+    margin-left: auto;
+
+    .icon {
+      box-sizing: content-box;
+      padding: 1rem;
+      color: $color-blue;
+      font-size: 1.8rem;
+      border: solid 1px $color-border;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Navigation
+.nav {
+  height: 100%;
+
+  .nav-links {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .nav-link {
+      a {
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: $color-grey-2;
+          transition: all 0.2s;
+        }
+
+        &:hover,
+        &:active {
+          color: $color-grey-1;
+        }
+
+        &.active-link {
+          color: $color-grey-1;
+        }
+      }
+    }
+  }
+}
+
 // Progress Bar
 .box {
   width: 100%;
@@ -154,39 +226,6 @@ body {
       font-size: 1.4rem;
       background-color: $color-blue;
       border-radius: 3px;
-    }
-  }
-}
-
-// Navigation
-.nav {
-  height: 100%;
-
-  .nav-links {
-    height: 100%;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    .nav-link {
-      a {
-        &:link,
-        &:visited {
-          text-decoration: none;
-          color: $color-grey-2;
-          transition: all 0.2s;
-        }
-
-        &:hover,
-        &:active {
-          color: $color-grey-1;
-        }
-
-        &.active-link {
-          color: $color-grey-1;
-        }
-      }
     }
   }
 }
