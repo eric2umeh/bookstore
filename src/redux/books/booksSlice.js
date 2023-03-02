@@ -1,53 +1,109 @@
-import { v4 } from 'uuid';
+/* eslint-disable no-param-reassign */
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import URL from '../../url';
 
-const ADD_BOOK = 'books/ADD_BOOK';
-const REMOVE_BOOK = 'book/REMOVE_BOOK';
+export const postBook = createAsyncThunk(
+  'books/postBook',
+  async (bookData, thunkAPI) => {
+    try {
+      const res = await axios.post(`${URL}/books`, bookData);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error?.data?.message || 'An error occured while posting data',
+      );
+    }
+  },
+);
 
-// Actions
-const addBook = (book) => ({
-  type: ADD_BOOK,
-  book,
-});
+export const getBooks = createAsyncThunk(
+  'books/getBooks',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios(`${URL}/books`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error?.data?.message || 'An error occured while getting data',
+      );
+    }
+  },
+);
 
-const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+export const deleteBook = createAsyncThunk(
+  'books/deleteBook',
+  async (id, thunkAPI) => {
+    try {
+      const res = await axios.delete(`${URL}/books/${id}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error?.data?.message || 'Error occured deleting data',
+      );
+    }
+  },
+);
 
-// Reducer
-const booksReducer = (
-  state = [
-    {
-      id: v4(),
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      id: v4(),
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      id: v4(),
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
-  action = {},
-) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.book];
-    case REMOVE_BOOK:
-      return [...state.filter((book) => book.id !== action.id)];
-    default:
-      return state;
-  }
+const initialState = {
+  isLoading: false,
+  books: [],
 };
 
-export { addBook, removeBook };
+const booksSlice = createSlice({
+  name: 'books',
+  initialState,
+  reducers: {
+    addBook: (state, actions) => {
+      const bookData = actions.payload;
+      state.books.push(bookData);
+    },
 
-export default booksReducer;
+    removeBook: (state, actions) => {
+      const idOfBookToRemove = actions.payload;
+      state.books = state.books.filter(
+        (book) => book.item_id !== idOfBookToRemove,
+      );
+    },
+  },
+  extraReducers: (builder) => {
+    // Post a Book
+    builder
+      .addCase(postBook.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(postBook.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(postBook.rejected, (state) => {
+        state.isLoading = false;
+      });
+
+    // Get Books
+    builder
+      .addCase(getBooks.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getBooks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const resObject = action.payload;
+
+        const newBooksArr = [];
+        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+        for (const id in resObject) {
+          const bookObj = resObject[id][0];
+          bookObj.item_id = id;
+          newBooksArr.push(bookObj);
+        }
+
+        state.books = newBooksArr;
+      })
+      .addCase(getBooks.rejected, (state) => {
+        state.isLoading = false;
+      });
+  },
+});
+
+export const booksActions = booksSlice.actions;
+
+export default booksSlice.reducer;
