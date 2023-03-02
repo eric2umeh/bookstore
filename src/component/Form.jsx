@@ -29,6 +29,7 @@ const Form = () => {
     // Empty form inputs
     setAuthor('');
     setTitle('');
+    setCategory('');
   };
 
   return (
