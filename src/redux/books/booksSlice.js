@@ -48,6 +48,7 @@ export const deleteBook = createAsyncThunk(
 const initialState = {
   isLoading: false,
   books: [],
+  categories: [],
 };
 
 const booksSlice = createSlice({
@@ -89,14 +90,17 @@ const booksSlice = createSlice({
         const resObject = action.payload;
 
         const newBooksArr = [];
+        const categoriesArr = [];
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const id in resObject) {
           const bookObj = resObject[id][0];
           bookObj.item_id = id;
           newBooksArr.push(bookObj);
+          categoriesArr.push(bookObj?.category);
         }
 
         state.books = newBooksArr;
+        state.categories = [...new Set(categoriesArr)];
       })
       .addCase(getBooks.rejected, (state) => {
         state.isLoading = false;
