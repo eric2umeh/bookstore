@@ -6,7 +6,9 @@ import Button from './Button';
 
 const Book = (props) => {
   const dispatch = useDispatch();
-  const { title, author, id } = props;
+  const {
+    title, author, id, category,
+  } = props;
 
   const handleRemove = (e) => {
     // dispatch for remove book action
@@ -22,6 +24,7 @@ const Book = (props) => {
   return (
     <div>
       <div>
+        <h3>{category}</h3>
         <h3>{title}</h3>
         <p>{author}</p>
         <div>
@@ -38,6 +41,7 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;

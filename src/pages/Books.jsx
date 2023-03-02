@@ -22,6 +22,7 @@ const Books = () => {
         id={indexx.item_id}
         title={indexx.title}
         author={indexx.author}
+        category={indexx.category}
       />
     ));
   }
