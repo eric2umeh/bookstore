@@ -33,7 +33,7 @@ const Books = () => {
 
   return (
     <>
-      <div className="row books-list-container">
+      <div className="row">
         <ul className="books-list">{output}</ul>
       </div>
       <Form />

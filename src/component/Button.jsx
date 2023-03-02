@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Button = ({
   type, value, handleClick, children, dataId,
 }) => (
-  <button type={type ? 'submit' : 'button'} value={value} data-id={dataId} onClick={handleClick}>{children}</button>
+  <button type={type ? 'submit' : 'button'} value={value} data-id={dataId} onClick={handleClick} className="button">{children}</button>
 );
 
 Button.propTypes = {
