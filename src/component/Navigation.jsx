@@ -1,17 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = () => (
-  <nav>
-    <div className="header">
-      <h1 className="title">Book Store</h1>
-
-      <ul>
-        <li><Link to="/">Books</Link></li>
-        <li><Link to="/categories">Categories</Link></li>
+function Navigation() {
+  return (
+    <nav className="nav">
+      <ul className="nav-links">
+        <li className="nav-link">
+          <NavLink
+            className={(linkData) => (linkData.isActive ? 'active-link' : '')}
+            to="/"
+          >
+            BOOKS
+          </NavLink>
+        </li>
+        <li className="nav-link">
+          <NavLink
+            className={(linkData) => (linkData.isActive ? 'active-link' : '')}
+            to="/categories"
+          >
+            CATEGORIES
+          </NavLink>
+        </li>
       </ul>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+}
 
 export default Navigation;

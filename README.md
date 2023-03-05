@@ -167,7 +167,9 @@ If you like this project kindly star it, I would appreciate that.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank (The Bookstore API)[https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi] for the endpoint and the Microverse team.
+I would like to thank 
+- [ ] [The Bookstore API](https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi) for the endpoint
+- [ ] [Zeplin Template](https://github.com/microverseinc/curriculum-react-redux/blob/main/bookstore/sneak_peek_v2_0.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

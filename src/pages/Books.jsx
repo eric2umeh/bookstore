@@ -22,6 +22,7 @@ const Books = () => {
         id={indexx.item_id}
         title={indexx.title}
         author={indexx.author}
+        category={indexx.category}
       />
     ));
   }
@@ -32,7 +33,7 @@ const Books = () => {
 
   return (
     <>
-      <div className="row books-list-container">
+      <div className="row">
         <ul className="books-list">{output}</ul>
       </div>
       <Form />

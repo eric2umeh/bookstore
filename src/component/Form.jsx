@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { booksActions, postBook } from '../redux/books/booksSlice';
-import Button from './Button';
+// import Button from './Button';
 
 const Form = () => {
   const [author, setAuthor] = useState('');
@@ -29,11 +29,13 @@ const Form = () => {
     // Empty form inputs
     setAuthor('');
     setTitle('');
+    setCategory('');
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="form-wrapper row">
+      <p className="title-form">ADD NEW BOOK</p>
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
           placeholder="Book's Title"
@@ -42,6 +44,8 @@ const Form = () => {
           name="title"
           onChange={(event) => setTitle(event.target.value)}
           value={title}
+          className="title-input"
+          required
         />
         <input
           type="text"
@@ -51,6 +55,8 @@ const Form = () => {
           aria-label="Book author input"
           onChange={(event) => setAuthor(event.target.value)}
           value={author}
+          className="author-input"
+          required
         />
         <select
           name="category"
@@ -58,6 +64,7 @@ const Form = () => {
           onChange={(event) => setCategory(event.target.value)}
           aria-label="Book Category"
           required
+          className="category-input"
         >
           <option value="">Choose Category...</option>
           <option value="Technology">Technology</option>
@@ -66,7 +73,9 @@ const Form = () => {
           <option value="Science">Science</option>
           <option value="Politics">Politics</option>
         </select>
-        <Button type="submit">Add Book</Button>
+        <button type="submit" className="submit-button">
+          Add Book
+        </button>
       </form>
     </div>
   );
