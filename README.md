@@ -47,7 +47,7 @@ This application will allow you to:
 
 # 🚀 Live Demo <a name="live-demo"></a>
 
-[Bookstore 📖]()
+[Bookstore 📖](https://eric2umeh.github.io/bookstore)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
